@@ -141,10 +141,14 @@ table {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 15px 0;
         
         select {
             display: block;
             margin-top: 15px;
+        }
+        #district-dropdown {
+            margin-bottom: 15px;   
         }
         h3 {
             text-align: center;
@@ -169,10 +173,14 @@ table {
     }
 }
 
-@media screen and (max-width: 601px) {
+@media screen and (max-width: 401px) {
     .container {
         input[type="text"], select, .date-picker {
             width: 180px;
+        }
+        
+        th, td {
+            font-size: 0.8rem;
         }
     }
 }
