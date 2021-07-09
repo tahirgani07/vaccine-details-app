@@ -1,0 +1,26 @@
+<style>
+    h3 {
+        font-weight: 500;
+    }
+</style>
+
+<h2 mat-dialog-title>{{ center.name }}</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Address</h3>
+  <p>{{ center.address }}</p>
+
+  <h3>City, State, Pincode </h3>
+  <p>{{ center.district_name }}, {{ center.state_name }}, {{ center.pincode }} </p>
+
+  <h3>Timing</h3>
+  <p> {{ center.from }} - {{ center.to }} </p>
+
+  <h3>Vaccine fees</h3>
+  <p *ngFor="let v of center.vaccine_fees">
+      {{ v.vaccine }} - ₹{{ v.fee }}
+  </p>
+  <p *ngIf="center.fee_type=='free'">Free</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

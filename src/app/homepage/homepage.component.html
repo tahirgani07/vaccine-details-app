@@ -1,0 +1,60 @@
+<div class="app-bar">
+    <h1>VACCINE AVAILABILITY CHECKER</h1>
+    <p>All the information displayed is LEGITIMATE and is extracted from the Co-Win Public Apis, provided by Ministry of Health and Family Welfare, Government of India.</p>
+</div>
+<div class="container">
+    <h3>Date: <span>(mm / dd / yyyy)</span></h3>
+    <div>
+        <input id="selected-date" class="date-picker" (dateChange)="reset()" #dateVal [matDatepicker]="picker" [value]="today" [min]="today" [max]="maxDate" readonly>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </div>
+
+    <h3>Search by:</h3>
+    <div class="radio-btns">
+        <span class="radio-1"><input type="radio" [(ngModel)]="searchBy" value="pincode" name="search-by" (change)="reset()"> Pin Code</span>
+        <span class="radio-2"><input type="radio" [(ngModel)]="searchBy" value= "district" name="search-by" (change)="reset()"> District / City</span>
+    </div>
+
+    <div *ngIf="searchBy=='district'" class="search-by-district-container">
+        <select id="state-dropdown" [(ngModel)]="selectedState" (ngModelChange)="onStateSelect()">
+            <option disabled>Select a State</option>
+            <option *ngFor="let state of states" value="{{state.state_id}}">{{ state.state_name }}</option>
+        </select>
+        <select id="district-dropdown" [(ngModel)]="selectedDistrict" (ngModelChange)="listByDistrict()">
+            <option disabled>Select a District</option>
+            <option *ngFor="let district of districts" value="{{district.district_id}}">{{ district.district_name }}</option>
+        </select>
+    </div>
+
+    <div *ngIf="searchBy=='pincode'" class="search-by-pincode-container">
+        <input type="text" [(ngModel)]="pincode" placeholder="Enter pincode" (keyup.enter)="listByPincode()">
+        <button (click)="listByPincode()">➔</button>
+    </div>
+    
+    <table *ngIf=centers.length>
+        <thead>Note: Click on any row to see more information.</thead>
+        <span>
+            <span>
+                <tr>
+                    <th class="col-1">Center Name</th>
+                    <th class="col-2">Available Capacity</th>
+                    <th class="col-3">Vaccine</th>
+                    <th class="col-4">Age Limit</th>
+                    <th class="col-5">Fee Type</th>
+                </tr> 
+            </span>
+        </span>
+        <span *ngFor="let center of centers; let i = index">
+            <span *ngFor="let session of center.sessions">
+                <tr class="data-row" (click)="openDialog(i)">
+                    <td class="col-1"> {{center.name}} </td>
+                    <td class="col-2"> {{session.available_capacity}} </td>
+                    <td class="col-3"> {{session.vaccine}} </td>
+                    <td class="col-4"> {{session.min_age_limit}} - {{session.max_age_limit}} </td>
+                    <td class="col-5"> {{center.fee_type}} </td>
+                </tr>
+            </span>
+        </span>
+    </table>
+</div>
