@@ -1,7 +1,7 @@
 # VaccineDetailsApp
 
 1.) Angular app that displays the vaccine availability details in India using the Co-Win Public Apis, provided by Ministry of Health and Family Welfare, Government of India.<br/><br/>
-2.) It is a Single Page Application (SPA) using advanced Angular concept like Rx/JS and Observables.
+2.) It is a Single Page Application (SPA) using advanced Angular concept like Rx/JS and Observables.<br/>
 
 ![2021-09-10 (37)](https://user-images.githubusercontent.com/69116292/132852423-72a3aae7-ae14-4c72-b68e-d50b7988e425.png)
 
