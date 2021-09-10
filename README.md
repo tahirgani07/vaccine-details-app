@@ -1,5 +1,17 @@
 # VaccineDetailsApp
 
+Angular app that displays the vaccine availability details in India using the Co-Win Public Apis, provided by Ministry of Health and Family Welfare, Government of India.
+
+![2021-09-10 (37)](https://user-images.githubusercontent.com/69116292/132852423-72a3aae7-ae14-4c72-b68e-d50b7988e425.png)
+
+![2021-09-10 (38)](https://user-images.githubusercontent.com/69116292/132852437-f6f494a4-a6ff-41df-b75b-be341d01f094.png)
+
+![2021-09-10 (39)](https://user-images.githubusercontent.com/69116292/132852440-191ba43b-998e-417d-acd4-f23be73dc043.png)
+
+![2021-09-10 (41)](https://user-images.githubusercontent.com/69116292/132852453-1e746e66-d9de-4efa-8566-f9a34e2ca6a4.png)
+
+# Other Details
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
 
 ## Development server
